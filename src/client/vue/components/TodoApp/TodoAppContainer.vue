@@ -32,7 +32,7 @@ export default {
         }
     },
     components:{
-        'todo-app-component': TodoAppComponent
+        TodoAppComponent
     }
 }
 </script>

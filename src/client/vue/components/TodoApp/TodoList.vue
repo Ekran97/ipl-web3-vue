@@ -16,12 +16,7 @@ export default {
         items: Array
     },
     components: {
-        'todo-item': TodoItem
+        TodoItem
     }
 }
 </script>
-
-
-
-
-

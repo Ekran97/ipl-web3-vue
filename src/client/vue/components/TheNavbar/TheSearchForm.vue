@@ -4,12 +4,12 @@
         <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
     </b-form>
 </template>
+
 <script>
-import Vue from "vue";
-
-const TheSearchForm = Vue.component("TheSearchForm", {
-});
-
-export default TheSearchForm;
+export default {
+    name: 'the-search-form',
+    props: {
+        history
+    }    
+}
 </script>
-

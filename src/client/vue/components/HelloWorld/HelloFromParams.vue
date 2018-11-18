@@ -1,13 +1,13 @@
 <template>
     <b-alert show variant="info">
-        Hello {{name}}
+        Hello {{ name }}
     </b-alert>
 </template>
 
 <script>
 export default {
-    name: "hello-world",
-    props:[
+    name: 'hello-from-params',
+    props: [
         'name'
     ]
 }

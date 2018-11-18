@@ -2,7 +2,7 @@
     <b-container>
         <h3>TODO</h3>
         <b-row>
-            <b-col>
+            <b-col lg="6">
                 <todo-form
                     :handleChange="handleChange"
                     :handleSubmit="handleSubmit"
@@ -10,8 +10,10 @@
                     :currentText="currentText"
                 />
             </b-col>
-            <b-col lg="6" xs="12">
-                <todo-list :items="items" />
+            <b-col lg="6">
+                <todo-list
+                    :items="items"
+                />
             </b-col>
         </b-row>
     </b-container>
@@ -31,8 +33,8 @@ export default {
         items: Array
     },
     components: {
-        'todo-form': TodoForm,
-        'todo-list': TodoList
+        TodoForm,
+        TodoList
     }
 }
 </script>

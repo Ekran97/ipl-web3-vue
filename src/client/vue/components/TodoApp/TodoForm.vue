@@ -1,7 +1,10 @@
 <template>
     <b-form @submit.prevent="handleSubmit">
-        <b-form-group label="Task">
-            <b-form-input type="text" placeholder="Feed the cat"
+        <b-form-group
+            label="Task">
+            <b-form-input
+                type="text"
+                placeholder="Feed the cat"
                 @change="handleChange"
                 :value="currentText">
             </b-form-input>
