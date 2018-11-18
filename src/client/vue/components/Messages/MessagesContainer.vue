@@ -40,10 +40,9 @@ export default {
     components:{
         MessagesComponent
     },
-    mounted: function(){
-        fetch("api/messages", {
-            method: "GET"
-        }).then((messages) => {
+    mounted() {
+        sendApiRequest({url:"/api/messages"})
+            .then((messages) => {
             this.messages = messages;
         }).catch((error) => {
             console.error(error);
@@ -52,4 +51,3 @@ export default {
     }
 }
 </script>
-

@@ -1,8 +1,8 @@
-import { retrieveJWT } from "react/services/session";
+import { retrieveJWT } from "../services/session";
 
 function sendApiRequest({ url, method = "GET", params = null }) {
   const jwt = retrieveJWT();
-  
+
   const headers = new Headers();
   headers.append("Accept", "application/json");
   headers.append("Content-Type", "application/json");

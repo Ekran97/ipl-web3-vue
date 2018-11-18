@@ -1,4 +1,4 @@
-import sendApiRequest from "react/utils/api";
+import sendApiRequest from "../utils/api";
 
 function storeJWT(jwt) {
   const serialized = JSON.stringify(jwt);
