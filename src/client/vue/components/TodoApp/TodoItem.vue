@@ -7,8 +7,8 @@
 <script>
 export default {
     name: 'todo-item',
-    props:[
-        'text'
-    ]
+    props:{
+        text: String
+    }
 }
 </script>
