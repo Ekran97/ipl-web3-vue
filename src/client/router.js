@@ -9,7 +9,7 @@ import HelloFromParams from "./vue/components/HelloWorld/HelloFromParams.vue";
 import TodoAppContainer from "./vue/components/TodoApp/TodoAppContainer.vue";
 import MessagesContainer from "./vue/components/Messages/MessagesContainer.vue";
 import MessageContainer from "./vue/components/Message/MessageContainer.vue";
-//import LoginContainer from "./vue/components/login/login_container"
+//import LoginContainer from "./vue/components/Login/LoginContainer.vue";
 
 /*function requireAuth(to, from, next) {
   if (!auth.isAuthenticated()) {
