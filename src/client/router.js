@@ -7,8 +7,8 @@ Vue.use(VueRouter);
 import HelloWorld from "./vue/components/HelloWorld/HelloWorld.vue";
 import HelloFromParams from "./vue/components/HelloWorld/HelloFromParams.vue";
 import TodoAppContainer from "./vue/components/TodoApp/TodoAppContainer.vue";
-import MessagesContainer from "./vue/components/Messages/MessagesContainer.vue"
-//import MessageContainer from "./vue/components/message/message_container"
+import MessagesContainer from "./vue/components/Messages/MessagesContainer.vue";
+import MessageContainer from "./vue/components/Message/MessageContainer.vue";
 //import LoginContainer from "./vue/components/login/login_container"
 
 /*function requireAuth(to, from, next) {
@@ -32,8 +32,8 @@ export default new VueRouter({
     },
     { path: "/hello/:name", component: HelloFromParams, props: true },
     { path: "/todo", component: TodoAppContainer },
-    { path: '/messages', component: MessagesContainer }
-    /*{ path: '/message/:id', component: MessageContainer },
-    { path: '/login', component: LoginContainer },*/
+    { path: "/messages", component: MessagesContainer },
+    { path: "/message/:id", component: MessageContainer, props: true }
+    /*{ path: '/login', component: LoginContainer },*/
   ]
 });

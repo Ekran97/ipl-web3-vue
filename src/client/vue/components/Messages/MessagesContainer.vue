@@ -18,7 +18,7 @@ export default {
     },
     methods:{
         deleteMessage: function(message) {
-            const url = `/api/messages/${message._id}`
+            const url = `/api/messages/${message._id}`;
             sendApiRequest({
                 url,
                 method: "DELETE",
@@ -41,8 +41,7 @@ export default {
         MessagesComponent
     },
     mounted() {
-        sendApiRequest({url:"/api/messages"})
-            .then((messages) => {
+        sendApiRequest({url:"/api/messages"}).then((messages) => {
             this.messages = messages;
         }).catch((error) => {
             console.error(error);
