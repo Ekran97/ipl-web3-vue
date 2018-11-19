@@ -22,10 +22,8 @@ export default {
         message: Object,
         deleteMessage: Function
     },
-    data() {
-        return {
-            detailsPath: `/message/${this.message._id}`
-        }
+    created() {
+        this.detailsPath = `/message/${this.message._id}`;
     }
 }
 </script>
