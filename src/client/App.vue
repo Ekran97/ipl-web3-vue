@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <the-navbar/>
-    <b-container fluid>
-      <b-row>
-        <b-col xs="2"/>
-        <b-col xs="8">
-          <router-view/>
-        </b-col>
-        <b-col xs="2"/>
-      </b-row>
-    </b-container>
-    <the-footer/>
+  <div id="app">
+      <the-navbar/>
+      <b-container fluid>
+        <b-row>
+          <b-col xs="2"/>
+          <b-col xs="8">
+            <router-view/>
+          </b-col>
+          <b-col xs="2"/>
+        </b-row>
+      </b-container>
+      <the-footer/>
   </div>
 </template>
 
@@ -26,6 +26,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-</style>

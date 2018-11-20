@@ -4,7 +4,7 @@
         <b-col xs="span: 8, offset: 2" style= "marginTop: 200px">
           <b-form @submit.prevent="authenticate">
             <b-form-group as="b-row" controlId="formHorizontalEmail"
-              label="Email" label-size="sm" column="2">
+              label="Email" label-size="sm">
               <b-col sm="10">
                 <b-form-input
                   name="email"
@@ -17,8 +17,8 @@
             </b-form-group>
 
             <b-form-group as="b-row" controlId="formHorizontalPassword" 
-              label="Password" label-size="sm" column="2">
-              <b-col sm={10}>
+              label="Password" label-size="sm">
+              <b-col sm="10">
                 <b-form-input
                   name="password"
                   type="password"

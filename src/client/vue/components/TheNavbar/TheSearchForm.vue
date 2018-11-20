@@ -19,6 +19,8 @@ export default {
         handleSearch() {
             const path = `/hello/${this.searchInput}`;
             this.$router.push(path);
+            //idem que history.push en react sauf
+            //qu'on a pas besoin de passer la prop en vue.js
         }
     }
 }
