@@ -1,4 +1,4 @@
-import * as Theme from "../../services/theme.js";
+import * as Theme from "../../../services/theme.js";
 
 const default_type = "dark";
 const default_variant = "dark";
@@ -39,4 +39,4 @@ function setVariant(state, { variant }) {
   Theme.saveVariant(variant);
 }
 
-export { state, mutations, getters };
+export default { namespaced: true, state, mutations, getters };

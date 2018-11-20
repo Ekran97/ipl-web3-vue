@@ -15,7 +15,7 @@
 <script>
 import sendApiRequest from "../../../utils/api.js";
 import LoginComponent from "./LoginComponent.vue";
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
     name: 'login-container',
@@ -25,15 +25,18 @@ export default {
             password: ""
         }
     },
+    computed: {
+        ...mapState('session', ['authenticated'] )
+    },
     methods: {
+        ...mapMutations('session', ['login'] ),
         onFieldChange(event) {
             this[event.target.name] = event.target.value;
         },
         authenticate() {
-            this.$store.commit('login',{email:this.email, password:this.password});
+            this.login({email:this.email, password:this.password});
         }
     },
-    computed: mapState( ['authenticated'] ),
     components: {
         LoginComponent
     }

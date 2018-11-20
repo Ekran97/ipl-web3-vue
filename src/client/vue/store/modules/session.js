@@ -1,4 +1,4 @@
-import * as Session from "../../services/session.js";
+import * as Session from "../../../services/session.js";
 import { decode } from "jsonwebtoken";
 
 const jwt = Session.retrieveJWT();
@@ -39,7 +39,6 @@ const mutations = {
         state.authenticated = false;
       });
   },
-
   logout(state) {
     Session.deleteSession();
     state.jwt = null;
@@ -50,4 +49,4 @@ const mutations = {
 
 const getters = {};
 
-export { state, mutations, getters };
+export default { namespaced: true, state, mutations, getters };

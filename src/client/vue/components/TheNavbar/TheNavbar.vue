@@ -6,7 +6,7 @@
             <b-nav-item to="/todo">Todo</b-nav-item>
             <b-nav-item to="/messages">Messages</b-nav-item>
             <b-nav-item to="/login" v-if="!authenticated">Login</b-nav-item>
-            <b-nav-item v-else>Logout</b-nav-item>
+            <b-nav-item v-else @click="logout">Logout</b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
             <b-nav-form>
@@ -18,19 +18,20 @@
 
 <script>
 import Vue from "vue";
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 import TheSearchForm from "./TheSearchForm.vue";
 
 const TheNavbar = Vue.component("the-navbar", {
-    methods: {
-        logout(){
-            
-        }
-    },
     components: {
         TheSearchForm
     },
-    computed: mapState(['type', 'variant', 'authenticated'])
+    computed: {
+        ...mapState('theme', ['type', 'variant']),
+        ...mapState('session', ['authenticated'])
+    },
+    methods: {
+        ...mapMutations('session', ['logout'])
+    }
 });
 
 export default TheNavbar;

@@ -1,12 +1,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import * as Theme from "./ThemeStore";
-import * as Session from "./SessionStore";
+import theme from "./modules/theme.js";
+import session from "./modules/session.js";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: Object.assign({}, Theme.state, Session.state),
-  mutations: Object.assign({}, Theme.mutations, Session.mutations),
-  getters: Object.assign({}, Theme.getters, Session.getters)
+  modules: {
+    theme,
+    session
+  }
 });
