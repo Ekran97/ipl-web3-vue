@@ -2,11 +2,19 @@ import * as Session from "../../services/session.js";
 import { decode } from "jsonwebtoken";
 
 const jwt = Session.retrieveJWT();
-const decodedJwt = decode(jwt);
-const username = decodedJwt == null ? null : decodedJwt.email;
+var username;
+var authenticated;
+if (jwt != "FAKE JWT" && jwt != null) {
+    const decodedJwt = decode(jwt);
+    username = decodedJwt.email;
+    authenticated = true;
+} else {
+    username = null;
+    authenticated = false
+}
 
 const state = {
-    authenticated: jwt != null,
+    authenticated: authenticated,
     jwt: jwt,
     username: username
 };
@@ -19,7 +27,7 @@ const mutations = {
             state.authenticated = true;
         });
     },
-    
+
     logout(state) {
         Session.deleteSession();
         state.jwt = null;
@@ -29,10 +37,10 @@ const mutations = {
 };
 
 const getters = {
-    isAuthenticated(state){
+    isAuthenticated(state) {
         return state.authenticated;
     },
-    username(state){
+    username(state) {
         return state.username;
     }
 };

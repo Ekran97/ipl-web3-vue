@@ -1,10 +1,14 @@
 <template>
-    <login-component v-if="!authenticated"
+    <div>
+        <div v-if="authenticated" >
+            {{ this.$router.push('/messages')}}</div>
+                <login-component v-if="!authenticated"
         :email="email"
         :password="email"
         :authenticate="authenticate"
         :onFieldChange="onFieldChange"
     />
+    </div>
 </template>
 
 <script>
@@ -17,17 +21,20 @@ export default {
     data() {
         return {
             email: "",
-            password: "",
-            authenticated: this.$store.getters.isAuthenticated
+            password: ""
         }
     },
     methods: {
         onFieldChange(event) {
-            console.log(event);
             this[event.target.name] = event.target.value
         },
         authenticate() {
             this.$store.commit('login',{email:this.email, password:this.password});
+        }
+    },
+    computed: {
+        authenticated(){
+            return this.$store.getters.isAuthenticated;
         }
     },
     components: {
