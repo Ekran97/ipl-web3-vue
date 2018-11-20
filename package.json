@@ -40,6 +40,7 @@
     "vue-router": "^3.0.1",
     "vue-spinner": "^1.0.3",
     "vue-template-compiler": "^2.5.17",
+    "vuex": "^3.0.1",
     "webpack-manifest-plugin": "^2.0.4"
   },
   "devDependencies": {

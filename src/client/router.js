@@ -1,8 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-Vue.use(VueRouter);
-
 //import auth from "react/contexts/authentication.js"/
 import HelloWorld from "./vue/components/HelloWorld/HelloWorld.vue";
 import HelloFromParams from "./vue/components/HelloWorld/HelloFromParams.vue";
@@ -22,6 +20,9 @@ import MessageContainer from "./vue/components/Message/MessageContainer.vue";
   }
 }*/
 
+Vue.use(VueRouter);
+
+//must redirect = this.$store.getters.isAuthenticated && this.$route.path != "/login";
 export default new VueRouter({
   base: __dirname,
   routes: [
