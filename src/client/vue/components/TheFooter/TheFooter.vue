@@ -11,12 +11,7 @@ import { mapState } from 'vuex';
 
 const TheFooter = Vue.component('the-footer', {
     name: 'the-footer',
-    data() {
-        return {
-            username: 'Hello',
-        }
-    },
-    computed: mapState( ['type', 'variant'] ),
+    computed: mapState( ['type', 'variant', 'username'] ),
     methods: {
         toggleType() {
             this.$store.commit('toggleType');
