@@ -5,8 +5,8 @@
             <b-nav-item to="/" exact>Hello</b-nav-item>
             <b-nav-item to="/todo">Todo</b-nav-item>
             <b-nav-item to="/messages">Messages</b-nav-item>
-            <b-nav-item to="/login">Login</b-nav-item>
-            <b-nav-item>Logout</b-nav-item>
+            <b-nav-item to="/login" v-if="!authenticated">Login</b-nav-item>
+            <b-nav-item v-else>Logout</b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
             <b-nav-form>
@@ -30,7 +30,7 @@ const TheNavbar = Vue.component("the-navbar", {
     components: {
         TheSearchForm
     },
-    computed: mapState(['type', 'variant'])
+    computed: mapState(['type', 'variant', 'authenticated'])
 });
 
 export default TheNavbar;

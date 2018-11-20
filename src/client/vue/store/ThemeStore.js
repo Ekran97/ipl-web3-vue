@@ -27,14 +27,7 @@ const mutations = {
   }
 };
 
-const getters = {
-  type: state => {
-    return state.type;
-  },
-  variant: state => {
-    return state.variant;
-  }
-};
+const getters = {};
 
 function setType(state, { type }) {
   state.type = type;

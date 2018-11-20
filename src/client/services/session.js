@@ -28,10 +28,8 @@ const createSession = (email, password) => {
       storeJWT(jwt);
       return jwt;
     })
-    .catch(() => {
-      const jwt = "FAKE JWT";
-      storeJWT(jwt);
-      return jwt;
+    .catch(error => {
+      return error;
     });
 };
 

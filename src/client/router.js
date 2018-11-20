@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-//import auth from "react/contexts/authentication.js"/
+import store from "./vue/store/store.js";
 import HelloWorld from "./vue/components/HelloWorld/HelloWorld.vue";
 import HelloFromParams from "./vue/components/HelloWorld/HelloFromParams.vue";
 import TodoAppContainer from "./vue/components/TodoApp/TodoAppContainer.vue";
@@ -9,28 +9,42 @@ import MessagesContainer from "./vue/components/Messages/MessagesContainer.vue";
 import MessageContainer from "./vue/components/Message/MessageContainer.vue";
 import LoginContainer from "./vue/components/Login/LoginContainer.vue";
 
-/*function requireAuth(to, from, next) {
-  if (!auth.isAuthenticated()) {
-    next({
-      path: '/login',
-      query: { redirect: to.fullPath }
-    })
-  } else {
-    next()
-  }
-}*/
-
 Vue.use(VueRouter);
 
-//must redirect = this.$store.getters.isAuthenticated && this.$route.path != "/login";
-export default new VueRouter({
+const router = new VueRouter({
   base: __dirname,
   routes: [
     { path: "/", component: HelloWorld, props: { name: "bob" } },
     { path: "/hello/:name", component: HelloFromParams, props: true },
     { path: "/todo", component: TodoAppContainer },
-    { path: "/messages", component: MessagesContainer },
-    { path: "/message/:id", component: MessageContainer, props: true },
-    { path: '/login', component: LoginContainer }
+    {
+      path: "/messages",
+      component: MessagesContainer,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: "/message/:id",
+      component: MessageContainer,
+      meta: { requiresAuth: true },
+      props: true
+    },
+    { path: "/login", component: LoginContainer }
   ]
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!store.state.authenticated) {
+      next({
+        path: "/login"
+        //query: { redirect: to.fullPath }
+      });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
+
+export default router;

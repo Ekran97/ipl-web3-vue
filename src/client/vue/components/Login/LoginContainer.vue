@@ -1,13 +1,14 @@
 <template>
     <div>
         <div v-if="authenticated" >
-            {{ this.$router.push('/messages')}}</div>
-                <login-component v-if="!authenticated"
-        :email="email"
-        :password="email"
-        :authenticate="authenticate"
-        :onFieldChange="onFieldChange"
-    />
+            {{ this.$router.push('/messages')}}
+        </div>
+        <login-component v-else
+            :email="email"
+            :password="password"
+            :authenticate="authenticate"
+            :onFieldChange="onFieldChange"
+        />
     </div>
 </template>
 
@@ -26,17 +27,13 @@ export default {
     },
     methods: {
         onFieldChange(event) {
-            this[event.target.name] = event.target.value
+            this[event.target.name] = event.target.value;
         },
         authenticate() {
             this.$store.commit('login',{email:this.email, password:this.password});
         }
     },
-    computed: {
-        authenticated(){
-            return this.$store.getters.isAuthenticated;
-        }
-    },
+    computed: mapState( ['authenticated'] ),
     components: {
         LoginComponent
     }
