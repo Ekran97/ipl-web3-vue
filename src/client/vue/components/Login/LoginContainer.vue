@@ -1,21 +1,16 @@
 <template>
-    <div>
-        <div v-if="authenticated" >
-            {{ this.$router.push('/messages')}}
-        </div>
-        <login-component v-else
-            :email="email"
-            :password="password"
-            :authenticate="authenticate"
-            :onFieldChange="onFieldChange"
-        />
-    </div>
+    <login-component
+        :email="email"
+        :password="password"
+        :authenticate="authenticate"
+        :onFieldChange="onFieldChange"
+    />
 </template>
 
 <script>
 import sendApiRequest from "../../../utils/api.js";
 import LoginComponent from "./LoginComponent.vue";
-import { mapState, mapMutations } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
     name: 'login-container',
@@ -25,16 +20,14 @@ export default {
             password: ""
         }
     },
-    computed: {
-        ...mapState('session', ['authenticated'] )
-    },
     methods: {
-        ...mapMutations('session', ['login'] ),
+        ...mapActions('session', ['login'] ), // --> this.login
+        authenticate() {
+            this.login({ email: this.email, password: this.password })
+                .then((response) => this.$router.push('/messages'));
+        },
         onFieldChange(event) {
             this[event.target.name] = event.target.value;
-        },
-        authenticate() {
-            this.login({email:this.email, password:this.password});
         }
     },
     components: {

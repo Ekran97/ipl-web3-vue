@@ -26,18 +26,10 @@ const state = {
 };
 
 const mutations = {
-  login(state, { email, password }) {
-    return Session.createSession(email, password)
-      .then(jwt => {
-        state.jwt = jwt;
-        state.username = decode(jwt).email;
-        state.authenticated = true;
-      })
-      .catch(error => {
-        state.jwt = null;
-        state.username = "";
-        state.authenticated = false;
-      });
+  login(state, { jwt }) {
+    state.jwt = jwt;
+    state.authenticated = true;
+    state.username = decode(jwt).email;
   },
   logout(state) {
     Session.deleteSession();
@@ -47,6 +39,16 @@ const mutations = {
   }
 };
 
+const actions = {
+  login(context, { email, password }) {
+    return Session.createSession(email, password)
+      .then(jwt => {
+        context.commit("login", { jwt });
+      })
+      .catch(() => context.commit("logout"));
+  }
+};
+
 const getters = {};
 
-export default { namespaced: true, state, mutations, getters };
+export default { namespaced: true, state, mutations, actions, getters };

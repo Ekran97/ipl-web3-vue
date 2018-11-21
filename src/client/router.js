@@ -28,7 +28,11 @@ const router = new VueRouter({
       meta: { requiresAuth: true },
       props: true
     },
-    { path: "/login", component: LoginContainer }
+    {
+      path: "/login",
+      component: LoginContainer,
+      meta: { requiresNotAuth: true }
+    }
   ]
 });
 
@@ -36,8 +40,16 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!store.state.session.authenticated) {
       next({
-        path: "/login"
-        //query: { redirect: to.fullPath }
+        path: "/login",
+        query: { redirect: to.fullPath }
+      });
+    } else {
+      next();
+    }
+  } else if (to.matched.some(record => record.meta.requiresNotAuth)) {
+    if (store.state.session.authenticated) {
+      next({
+        path: from.path
       });
     } else {
       next();
