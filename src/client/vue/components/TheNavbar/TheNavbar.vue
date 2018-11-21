@@ -1,16 +1,18 @@
 <template>
-    <b-navbar toggleable="md" :variant="variant" :type="type">
+    <b-navbar toggleable="md" :type="type" :variant="variant">
         <b-navbar-brand to="/">Navbar</b-navbar-brand>
         <b-navbar-nav>
             <b-nav-item to="/" exact>Hello</b-nav-item>
             <b-nav-item to="/todo">Todo</b-nav-item>
             <b-nav-item to="/messages">Messages</b-nav-item>
-            <b-nav-item to="/login" v-if="!authenticated">Login</b-nav-item>
-            <b-nav-item v-else @click="logoutAndRedirect">Logout</b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
             <b-nav-form>
                <the-search-form/>
+               <b-button variant="outline-warning" to="/login" v-if="!authenticated">Login</b-button>
+               <b-button variant="outline-warning" @click="logoutAndRedirect" v-if="authenticated">
+                   Logout
+               </b-button>
             </b-nav-form>
         </b-navbar-nav>
     </b-navbar>

@@ -27,8 +27,6 @@ const mutations = {
   }
 };
 
-const getters = {};
-
 function setType(state, { type }) {
   state.type = type;
   Theme.saveBackground(type);
@@ -39,4 +37,4 @@ function setVariant(state, { variant }) {
   Theme.saveVariant(variant);
 }
 
-export default { namespaced: true, state, mutations, getters };
+export default { namespaced: true, state, mutations };

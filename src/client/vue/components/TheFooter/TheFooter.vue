@@ -1,7 +1,9 @@
 <template>
     <b-navbar :type="type" :variant="variant" fixed="bottom">
-        <b-button @click="toggleType">Dark/Light</b-button>
-        <b-navbar-brand>Username: {{ username }}</b-navbar-brand>
+        <b-navbar-nav class="mr-auto">
+            <b-navbar-brand>Username: {{ username }}</b-navbar-brand>
+        </b-navbar-nav>
+        <b-button @click="toggleType" variant="outline-info">Change Theme</b-button>
     </b-navbar>
 </template>
 
