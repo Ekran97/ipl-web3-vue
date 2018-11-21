@@ -32,7 +32,6 @@ const mutations = {
     state.username = decode(jwt).email;
   },
   logout(state) {
-    Session.deleteSession();
     state.jwt = null;
     state.username = null;
     state.authenticated = false;
@@ -46,6 +45,10 @@ const actions = {
         context.commit("login", { jwt });
       })
       .catch(() => context.commit("logout"));
+  },
+  logout(context) {
+    Session.deleteSession();
+    context.commit("logout");
   }
 };
 

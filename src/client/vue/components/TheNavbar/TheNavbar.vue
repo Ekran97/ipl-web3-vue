@@ -18,7 +18,7 @@
 
 <script>
 import Vue from "vue";
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapActions } from "vuex";
 import TheSearchForm from "./TheSearchForm.vue";
 
 const TheNavbar = Vue.component("the-navbar", {
@@ -30,7 +30,7 @@ const TheNavbar = Vue.component("the-navbar", {
         ...mapState('session', ['authenticated'])
     },
     methods: {
-        ...mapMutations('session', ['logout']),
+        ...mapActions('session', ['logout']),
         logoutAndRedirect(){
             this.logout();
             this.$router.push('/login');
