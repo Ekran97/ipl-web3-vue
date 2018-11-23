@@ -10,7 +10,7 @@
             <b-nav-form>
                <the-search-form/>
                <b-button variant="outline-warning" to="/login" v-if="!authenticated">Login</b-button>
-               <b-button variant="outline-warning" @click="logoutAndRedirect" v-if="authenticated">
+               <b-button variant="outline-warning" @click="logoutAndRedirect" v-else>
                    Logout
                </b-button>
             </b-nav-form>

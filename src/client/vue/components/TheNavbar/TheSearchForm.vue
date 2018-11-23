@@ -1,9 +1,18 @@
 <template>
     <b-form @submit.prevent="handleSearch">
-        <b-form-input class="mr-sm-2" type="text" placeholder="Search"
-            @change="(input) => { this.searchInput = input} "
+        <b-form-input
+            class="mr-sm-2"
+            type="text"
+            placeholder="Search"
+            v-model="searchInput"
         />
-        <b-button type="submit" variant="outline-info" class="my-2 my-sm-0">Search</b-button>
+        <b-button
+            type="submit"
+            variant="outline-info"
+            class="my-2 my-sm-0"
+        >
+        Search
+        </b-button>
     </b-form>
 </template>
 
@@ -13,6 +22,7 @@ export default {
     data() {
         return {
             searchInput: ""
+            //ref => v-model en vue.js
         }
     },
     methods: {
