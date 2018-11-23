@@ -1,6 +1,7 @@
 <template>
     <b-list-group>
-        <todo-item v-for="item in items"
+        <todo-item
+            v-for="item in items"
             :key="item.id"
             :text="item.text"
         />

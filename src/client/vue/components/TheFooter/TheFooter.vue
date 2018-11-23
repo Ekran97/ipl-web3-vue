@@ -1,9 +1,18 @@
 <template>
-    <b-navbar :type="type" :variant="variant" fixed="bottom">
+    <b-navbar
+        :type="type"
+        :variant="variant"
+        fixed="bottom"
+    >
         <b-navbar-nav class="mr-auto">
             <b-navbar-brand>Username: {{ username }}</b-navbar-brand>
         </b-navbar-nav>
-        <b-button @click="toggleType" variant="outline-info">Change Theme</b-button>
+        <b-button
+            @click="toggleType"
+            variant="outline-info"
+        >
+            Change Theme
+        </b-button>
     </b-navbar>
 </template>
 
@@ -17,7 +26,7 @@ const TheFooter = Vue.component('the-footer', {
         ...mapState('theme', ['type', 'variant', ] ),
         ...mapState('session', ['username'])
     },
-    methods:{
+    methods: {
         ...mapMutations('theme', ['toggleType'] )
     }
 });

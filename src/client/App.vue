@@ -20,7 +20,7 @@ import TheFooter from "vue/components/TheFooter/TheFooter.vue";
 
 export default {
   name: 'app',
-  components:{
+  components: {
     TheNavbar,
     TheFooter
   }

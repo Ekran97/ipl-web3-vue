@@ -7,8 +7,8 @@
 <script>
 export default {
     name: 'hello-from-params',
-    props: [
-        'name'
-    ]
+    props: {
+        name: String
+    }
 }
 </script>

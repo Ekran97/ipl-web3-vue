@@ -1,10 +1,16 @@
 <template>
    <b-container>
       <b-row>
-        <b-col xs="span: 8, offset: 2" style= "marginTop: 200px">
+        <b-col xs="span: 8, offset: 2"
+          style= "marginTop: 200px"
+        >
           <b-form @submit.prevent="authenticate">
-            <b-form-group class="b-row" controlId="formHorizontalEmail"
-              label="Email" label-size="sm">
+            <b-form-group
+              class="b-row"
+              controlId="formHorizontalEmail"
+              label="Email"
+              label-size="sm"
+            >
               <b-col class="sm-10">
                 <b-form-input
                   name="email"
@@ -16,8 +22,12 @@
               </b-col>
             </b-form-group>
 
-            <b-form-group class="b-row" controlId="formHorizontalPassword" 
-              label="Password" label-size="sm">
+            <b-form-group
+              class="b-row"
+              controlId="formHorizontalPassword" 
+              label="Password"
+              label-size="sm"
+            >
               <b-col class="sm-10">
                 <b-form-input
                   name="password"

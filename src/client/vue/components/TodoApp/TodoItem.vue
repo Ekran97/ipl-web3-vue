@@ -1,13 +1,13 @@
 <template>
     <b-list-group-item>
-        {{text}}
+        {{ text }}
     </b-list-group-item>
 </template>
 
 <script>
 export default {
     name: 'todo-item',
-    props:{
+    props: {
         text: String
     }
 }

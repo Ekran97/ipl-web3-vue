@@ -2,7 +2,7 @@
     <b-jumbotron>
         <h3>Messages</h3>
         <pulse-loader v-if="!message"/>
-        <p v-if="message">{{ message.title }} - {{ message.text }}</p>
+        <p v-else>{{ message.title }} - {{ message.text }}</p>
     </b-jumbotron>
 </template>
 

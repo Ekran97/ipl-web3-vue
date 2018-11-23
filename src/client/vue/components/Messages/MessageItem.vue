@@ -3,10 +3,16 @@
         <b-col xs="8">{{message.title}} - {{message.text}}</b-col>
         <b-col xs="4">
             <b-button-toolbar>
-                <b-button :to="detailsPath" variant="outline-primary">
+                <b-button
+                    :to="detailsPath"
+                    variant="outline-primary"
+                >
                     Détails
                 </b-button>
-                <b-button variant="danger" @click="deleteMessage(message)">
+                <b-button
+                    variant="danger"
+                    @click="deleteMessage(message)"
+                >
                     Delete
                 </b-button>
             </b-button-toolbar>

@@ -11,7 +11,7 @@
             variant="outline-info"
             class="my-2 my-sm-0"
         >
-        Search
+            Search
         </b-button>
     </b-form>
 </template>

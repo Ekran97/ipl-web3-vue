@@ -18,7 +18,7 @@ export default {
             text: ""
         };
     },
-    methods:{
+    methods: {
         handleSubmit: function(e) {
             const newItem = {
                 text: this.text,
@@ -31,7 +31,7 @@ export default {
             this.text = msg;
         }
     },
-    components:{
+    components: {
         TodoAppComponent
     }
 }

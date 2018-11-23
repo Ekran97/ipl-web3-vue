@@ -16,7 +16,7 @@ export default {
             messages: []
         };
     },
-    methods:{
+    methods: {
         deleteMessage: function(message) {
             const url = `/api/messages/${message._id}`;
             sendApiRequest({
@@ -34,10 +34,10 @@ export default {
             .catch((error) => {
                 console.error(error);
                 this.messages = [];
-            })
+            });
         }
     },
-    components:{
+    components: {
         MessagesComponent
     },
     mounted() {
@@ -46,7 +46,7 @@ export default {
         }).catch((error) => {
             console.error(error);
             this.messages = [];
-        })
+        });
     }
 }
 </script>

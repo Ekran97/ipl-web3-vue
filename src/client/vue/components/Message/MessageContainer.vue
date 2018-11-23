@@ -29,7 +29,7 @@ export default {
             });
        } 
     },
-    mounted(){
+    mounted() {
         setTimeout(this.fetchMessage, 2000);
     },
     components: {

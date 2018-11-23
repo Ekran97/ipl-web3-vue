@@ -1,5 +1,9 @@
 <template>
-    <b-navbar toggleable="md" :type="type" :variant="variant">
+    <b-navbar
+        toggleable="md"
+        :type="type"
+        :variant="variant"
+    >
         <b-navbar-brand to="/">Navbar</b-navbar-brand>
         <b-navbar-nav>
             <b-nav-item to="/" exact>Hello</b-nav-item>
@@ -8,11 +12,21 @@
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
             <b-nav-form>
-               <the-search-form/>
-               <b-button variant="outline-warning" to="/login" v-if="!authenticated">Login</b-button>
-               <b-button variant="outline-warning" @click="logoutAndRedirect" v-else>
-                   Logout
-               </b-button>
+                <the-search-form/>
+                <b-button
+                    variant="outline-warning"
+                    to="/login"
+                    v-if="!authenticated"
+                >
+                    Login
+                </b-button>
+                <b-button
+                    variant="outline-warning"
+                    @click="logoutAndRedirect"
+                    v-else
+                >
+                    Logout
+                </b-button>
             </b-nav-form>
         </b-navbar-nav>
     </b-navbar>
@@ -33,7 +47,7 @@ const TheNavbar = Vue.component("the-navbar", {
     },
     methods: {
         ...mapActions('session', ['logout']),
-        logoutAndRedirect(){
+        logoutAndRedirect() {
             this.logout();
             this.$router.push('/login');
         }

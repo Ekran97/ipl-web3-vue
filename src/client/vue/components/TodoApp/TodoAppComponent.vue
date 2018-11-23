@@ -26,7 +26,7 @@ import TodoList from './TodoList.vue';
 
 export default {
     name: 'todo-app-component',
-    props:{
+    props: {
         handleChange: Function,
         handleSubmit: Function,
         currentText: String,
