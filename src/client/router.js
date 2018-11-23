@@ -17,22 +17,9 @@ const router = new VueRouter({
     { path: "/", component: HelloWorld, props: { name: "bob" } },
     { path: "/hello/:name", component: HelloFromParams, props: true },
     { path: "/todo", component: TodoAppContainer },
-    {
-      path: "/messages",
-      component: MessagesContainer,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: "/message/:id",
-      component: MessageContainer,
-      meta: { requiresAuth: true },
-      props: true
-    },
-    {
-      path: "/login",
-      component: LoginContainer,
-      meta: { requiresNotAuth: true }
-    }
+    { path: "/messages", component: MessagesContainer, meta: { requiresAuth: true } },
+    { path: "/message/:id", component: MessageContainer, meta: { requiresAuth: true }, props: true },
+    { path: "/login", component: LoginContainer, meta: { requiresNotAuth: true } }
   ]
 });
 
